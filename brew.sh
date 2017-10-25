@@ -97,6 +97,7 @@ brew cask install nordvpn
 brew cask install slate
 brew cask install bartender
 brew cask install tunnelblick
+brew cask install sublime-text
 
 # Remove outdated versions from the cellar.
 brew cleanup
