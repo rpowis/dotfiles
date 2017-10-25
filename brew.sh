@@ -111,18 +111,6 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until `brew.sh` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-# Workaround for being able to change permissions in High Sierra
-sudo mkdir /usr/local/include
-sudo mkdir /usr/local/Frameworks
-
 # allow admins to manage homebrew's local install directory
 sudo chgrp -R admin $(brew --prefix)
 sudo chmod -R g+w $(brew --prefix)
-
-# allow admins to homebrew's local cache of formulae and source files
-sudo chgrp -R admin /Library/Caches/Homebrew
-sudo chmod -R g+w /Library/Caches/Homebrew
-
-# if you are using cask then allow admins to manager cask install too
-sudo chgrp -R admin /opt/homebrew-cask
-sudo chmod -R g+w /opt/homebrew-cask
