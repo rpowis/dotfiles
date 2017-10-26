@@ -28,6 +28,8 @@ sudo pmset -a standbydelay 86400
 # Show battery percentage
 defaults write com.apple.menuextra.battery ShowPercent -bool true
 
+# Show date next to time
+defaults write com.apple.menuextra.clock "DateFormat" "EEE MMM d h:mm:ss"
 
 # Disable transparency in the menu bar and elsewhere on Yosemite
 defaults write com.apple.universalaccess reduceTransparency -bool true
