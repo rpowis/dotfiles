@@ -47,6 +47,7 @@ brew install screen
 # Install some languages
 brew install homebrew/php/php56 --with-gmp
 brew install node
+brew install python
 
 # Install font tools.
 brew tap bramstein/webfonttools
