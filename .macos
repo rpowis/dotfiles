@@ -840,6 +840,22 @@ defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
 defaults write org.m0k.transmission RandomPort -bool true
 
 ###############################################################################
+# Login                                                                       #
+###############################################################################
+
+# Disable the guest account
+sudo defaults write /Library/Preferences/com.apple.AppleFileServer guestAccess -bool NO
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server AllowGuestAccess -bool NO
+
+# Startup items
+osascript -e 'tell application "System Events" to delete login item "iTunesHelper"' &> /dev/null
+osascript -e 'tell application "System Events" to delete login item "Google Chrome"' &> /dev/null
+osascript -e 'tell application "System Events" to delete login item "Dash"' &> /dev/null
+osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Dash.app", hidden:true}' &> /dev/null
+osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Slate.app", hidden:false}' &> /dev/null
+osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Bartender 3.app", hidden:false}' &> /dev/null
+
+###############################################################################
 # Do some clean up work.
 ###############################################################################
 
