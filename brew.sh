@@ -63,12 +63,12 @@ brew install netpbm
 brew install nmap
 brew install socat
 brew install sqlmap
-brew install xpdf
 
 # Install other useful binaries.
 brew install ack
 brew install git
 brew install git-lfs
+brew install tig
 brew install imagemagick --with-webp
 brew install p7zip
 brew install pigz
