@@ -102,6 +102,7 @@ brew cask install slate
 brew cask install bartender
 brew cask install tunnelblick
 brew cask install sublime-text
+brew cask install adobe-acrobat-reader
 
 # Remove outdated versions from the cellar.
 brew cleanup
