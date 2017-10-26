@@ -25,8 +25,8 @@ sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.serve
 # Set standby delay to 24 hours (default is 1 hour)
 sudo pmset -a standbydelay 86400
 
-# Show 
-sudo defaults write com.apple.menuextra.battery ShowPercent -bool true
+# Show battery percentage
+defaults write com.apple.menuextra.battery ShowPercent -bool true
 
 
 # Disable transparency in the menu bar and elsewhere on Yosemite
