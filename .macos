@@ -18,7 +18,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Set computer name (as done via System Preferences → Sharing)
 sudo scutil --set ComputerName "rp-mbp"
-sudo scutil --set HostName "rp-mbp"
+
 sudo scutil --set LocalHostName "rp-mbp"
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "rp-mbp"
 
@@ -185,6 +185,15 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow showInputMenu -bo
 # Disable Spotlight keyboard shortcut
 /usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:64:enabled false" ~/Library/Preferences/com.apple.symbolichotkeys.plist
 /usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:65:enabled false" ~/Library/Preferences/com.apple.symbolichotkeys.plist
+
+# Map the Caps Lock key to Control for easier access in terminals
+defaults -currentHost write -g com.apple.keyboard.modifiermapping.1452-591-0 -array \
+'<dict>
+    <key>HIDKeyboardModifierMappingDst</key>
+    <integer>30064771300</integer>
+    <key>HIDKeyboardModifierMappingSrc</key>
+    <integer>30064771129</integer>
+</dict>'
 
 ###############################################################################
 # Screen                                                                      #
