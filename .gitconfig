@@ -26,6 +26,7 @@
 
 	# Show verbose output about tags, branches or remotes
 	tags = tag -l
+	b = branch -a
 	branches = branch -a
 	remotes = remote -v
 
