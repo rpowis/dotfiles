@@ -37,6 +37,8 @@ brew install wget --with-iri
 
 # Install GnuPG to enable PGP-signing commits.
 brew install gnupg
+brew install gpg-agent
+brew install pinentry-mac
 
 # Install more recent versions of some macOS tools.
 brew install vim --with-override-system-vi
@@ -81,9 +83,10 @@ brew install tree
 brew install vbindiff
 brew install zopfli
 
-# Casks
 # Specify a directory to install Casks
 export HOMEBREW_CASK_OPTS="--appdir=/Applications --fontdir=/Library/Fonts"
+
+# Casks
 brew tap caskroom/homebrew-cask
 brew cask install google-chrome
 brew cask install dropbox
