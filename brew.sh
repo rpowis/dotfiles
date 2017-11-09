@@ -83,6 +83,9 @@ brew install tree
 brew install vbindiff
 brew install zopfli
 
+# Other useful libraries
+brew install hub
+
 # Specify a directory to install Casks
 export HOMEBREW_CASK_OPTS="--appdir=/Applications --fontdir=/Library/Fonts"
 
