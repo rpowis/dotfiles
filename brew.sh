@@ -95,8 +95,8 @@ brew cask install google-chrome
 brew cask install dropbox
 brew cask install alfred
 brew cask install flux
-# brew cask install skype
-# brew cask install virtualbox
+brew cask install skype
+brew cask install virtualbox
 brew cask install slack
 brew cask install spotify
 brew cask install 1password
@@ -109,6 +109,7 @@ brew cask install bartender
 brew cask install tunnelblick
 brew cask install sublime-text
 brew cask install adobe-acrobat-reader
+brew cask install diffmerge
 
 # Remove outdated versions from the cellar.
 brew cleanup
