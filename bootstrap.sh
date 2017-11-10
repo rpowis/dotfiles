@@ -70,6 +70,7 @@ done
 declare -a FILES_TO_SYMLINK=(
   shell/*
   git/*
+  apps/*
 )
 
 main() {
