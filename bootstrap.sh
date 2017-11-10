@@ -53,16 +53,6 @@ print_result() {
 
 # ------------------------------------------------
 
-# Warn user this script will overwrite current dotfiles
-while true; do
-  read -p "Warning: this will overwrite your current dotfiles. Continue? [y/n] " yn
-  case $yn in
-    [Yy]* ) break;;
-    [Nn]* ) exit;;
-    * ) echo "Please answer yes or no.";;
-  esac
-done
-
 #
 # Actual symlink stuff
 #
@@ -74,6 +64,16 @@ declare -a FILES_TO_SYMLINK=(
 )
 
 main() {
+	# Warn user this script will overwrite current dotfiles
+	while true; do
+	  read -p "Warning: this will overwrite your current dotfiles. Continue? [y/n] " yn
+	  case $yn in
+	    [Yy]* ) break;;
+	    [Nn]* ) exit;;
+	    * ) echo "Please answer yes or no.";;
+	  esac
+	done
+
   local i=''
   local sourceFile=''
   local targetFile=''
