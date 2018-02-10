@@ -112,6 +112,13 @@ brew cask install sublime-text
 brew cask install adobe-acrobat-reader
 brew cask install diffmerge
 
+# Quick Look Plugins
+brew cask install qlmarkdown
+brew cask install qlcolorcode
+brew cask install quicklook-json
+brew cask install qlimagesize
+brew cask install webpquicklook
+
 # Remove outdated versions from the cellar.
 brew cleanup
 
