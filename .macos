@@ -177,14 +177,21 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow showInputMenu -bo
 # /usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:65:enabled false" ~/Library/Preferences/com.apple.symbolichotkeys.plist
 
 # Map the Caps Lock key to Control for easier access in terminals
-# TODO: find the keyboard ID using `ioreg`
-defaults -currentHost write -g com.apple.keyboard.modifiermapping.1452-602-0 -array \
-'<dict>
-    <key>HIDKeyboardModifierMappingDst</key>
-    <integer>30064771300</integer>
-    <key>HIDKeyboardModifierMappingSrc</key>
-    <integer>30064771129</integer>
-</dict>'
+function mapKeys() {
+  local VENDOR_ID="$(ioreg -n AppleEmbeddedKeyboard -r | awk '$2 == "\"VendorID\"" { print $4 }')"
+  local PRODUCT_ID="$(ioreg -n AppleEmbeddedKeyboard -r | awk '$2 == "\"ProductID\"" { print $4 }')"
+  local KEYBOARD="${VENDOR_ID}-${PRODUCT_ID}-0"
+
+  defaults -currentHost write -g com.apple.keyboard.modifiermapping.$KEYBOARD -array \
+  '<dict>
+      <key>HIDKeyboardModifierMappingDst</key>
+      <integer>30064771300</integer>
+      <key>HIDKeyboardModifierMappingSrc</key>
+      <integer>30064771129</integer>
+  </dict>'
+}
+
+mapKeys
 
 ###############################################################################
 # Screen                                                                      #
