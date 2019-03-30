@@ -90,7 +90,7 @@ brew install tree
 brew install vbindiff
 brew install zopfli
 
-# Other useful libraries
+# Useful git libraries
 brew install hub
 brew install diff-so-fancy
 
