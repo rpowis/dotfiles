@@ -794,13 +794,6 @@ defaults write com.operasoftware.Opera PMPrintingExpandedStateForPrint2 -boolean
 defaults write com.operasoftware.OperaDeveloper PMPrintingExpandedStateForPrint2 -boolean true
 
 ###############################################################################
-# Sublime Text                                                                #
-###############################################################################
-
-# Install Sublime Text settings
-# cp -r ~/Dropbox/Apps/Sublime\ Text\ 3/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null
-
-###############################################################################
 # Transmission.app                                                            #
 ###############################################################################
 

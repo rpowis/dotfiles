@@ -115,7 +115,7 @@ brew cask install nordvpn
 brew cask install slate
 brew cask install bartender
 brew cask install tunnelblick
-brew cask install sublime-text
+brew cask install visual-studio-code
 brew cask install adobe-acrobat-reader
 brew cask install diffmerge
 
