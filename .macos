@@ -18,7 +18,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Set computer name (as done via System Preferences → Sharing)
 sudo scutil --set ComputerName "rp-mbp"
-
+sudo scutil --set HostName "rp-mbp"
 sudo scutil --set LocalHostName "rp-mbp"
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "rp-mbp"
 
