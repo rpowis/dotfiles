@@ -64,15 +64,15 @@ declare -a FILES_TO_SYMLINK=(
 )
 
 main() {
-	# Warn user this script will overwrite current dotfiles
-	while true; do
-	  read -p "Warning: this will overwrite your current dotfiles. Continue? [y/n] " yn
-	  case $yn in
-	    [Yy]* ) break;;
-	    [Nn]* ) exit;;
-	    * ) echo "Please answer yes or no.";;
-	  esac
-	done
+  # Warn user this script will overwrite current dotfiles
+  while true; do
+    read -p "Warning: this will overwrite your current dotfiles. Continue? [y/n] " yn
+    case $yn in
+      [Yy]* ) break;;
+      [Nn]* ) exit;;
+      * ) echo "Please answer yes or no.";;
+    esac
+  done
 
   local i=''
   local sourceFile=''
@@ -105,7 +105,7 @@ main() {
 homebrew() {
   ask_for_confirmation "Would you like to install and run homebrew?"
   if answer_is_yes; then
-		source brew.sh
+    source brew.sh
   else
     print_error "Skipping homebrew"
   fi
