@@ -13,7 +13,7 @@ function dotfiles {
 }
 
 # 3. Checkout dotfiles to $HOME dir (bypassing `set -e` if the command fails)
-dotfiles checkout || true
+dotfiles checkout 2>&1 || true
 
 # 4. If checkout suceeded...
 if [ $? = 0 ]; then
