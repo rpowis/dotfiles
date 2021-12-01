@@ -24,3 +24,6 @@ else
   dotfiles checkout
   echo "Checked out dotfiles."
 fi
+
+echo "Reloading shell."
+exec $SHELL
