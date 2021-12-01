@@ -1,8 +1,7 @@
 #!/bin/bash
 
-# -e Exit immediately if a command fails
 # -u Treat unset variables as an error and exit immediately
-set -eu
+set -u
 
 # 1. Clone as a bare repo
 git clone --bare https://github.com/rpowis/dotfiles.git $HOME/.dotfiles
@@ -14,15 +13,13 @@ function dotfiles {
 
 # 3. Checkout dotfiles to $HOME dir
 dotfiles checkout
+echo ""
 
-# 4. If checkout failed...
-if [ $? -ne 0 ]; then
-  # 5. Checkout again, backing up pre-existing dotfiles in the process
+if [ $? = 0 ]; then
+  echo "Checked out dotfiles."
+else
   mkdir -p .dotfiles.BAK
   echo "Backing up pre-existing dotfiles."
   dotfiles checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .dotfiles.BAK/{}
   dotfiles checkout
 fi
-
-# 7. We're done!
-echo "Checked out dotfiles."
