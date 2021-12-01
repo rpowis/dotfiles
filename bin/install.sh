@@ -13,7 +13,7 @@ function dotfiles {
 }
 
 # 3. Checkout dotfiles to $HOME dir
-dotfiles checkout &>/dev/null
+dotfiles checkout
 
 # 4. If checkout failed...
 if [ $? -ne 0 ]; then
