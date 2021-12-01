@@ -25,5 +25,10 @@ else
   echo "Checked out dotfiles."
 fi
 
+echo "Installing Homebrew and packages."
+source bin/brew.sh
+
+# TODO: Set up fish shell
+
 echo "Reloading shell."
 exec $SHELL
