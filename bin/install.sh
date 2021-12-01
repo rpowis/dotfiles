@@ -13,7 +13,6 @@ function dotfiles {
 
 # 3. Checkout dotfiles to $HOME dir
 dotfiles checkout
-echo ""
 
 if [ $? = 0 ]; then
   echo "Checked out dotfiles."
@@ -22,4 +21,5 @@ else
   echo "Backing up pre-existing dotfiles."
   dotfiles checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .dotfiles.BAK/{}
   dotfiles checkout
+  echo "Checked out dotfiles."
 fi
