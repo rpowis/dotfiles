@@ -21,6 +21,7 @@ if [ $? -ne 0 ]; then
   mkdir -p .dotfiles.BAK
   echo "Backing up pre-existing dotfiles."
   dotfiles checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .dotfiles.BAK/{}
+  dotfiles checkout
 fi
 
 # 7. We're done!
