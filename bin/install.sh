@@ -17,6 +17,7 @@ dotfiles checkout
 if [ $? = 0 ]; then
   echo "Checked out dotfiles."
 else
+  # 4. Backup existing dotfiles
   mkdir -p .dotfiles.BAK
   echo "Backing up pre-existing dotfiles."
   dotfiles checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .dotfiles.BAK/{}
