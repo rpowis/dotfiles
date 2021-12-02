@@ -4,9 +4,8 @@
 if test -n "$(which brew)"; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-    # TODO: Run these in each shell's startup instead
-    # echo 'eval "$(brew shellenv)"' >>$HOME/.config/fish/config.fish
-    # eval "$(brew shellenv)"
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>$HOME/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 # Update Homebrew
