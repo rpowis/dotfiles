@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# -u Treat unset variables as an error and exit immediately
+# Treat unset variables as an error and exit immediately
 set -u
 
 # 1. Clone as a bare repo
@@ -19,16 +19,31 @@ if [ $? = 0 ]; then
 else
   # 4. Backup existing dotfiles
   mkdir -p .dotfiles.BAK
-  echo "Backing up pre-existing dotfiles."
+  echo "Backing up pre-existing dotfiles..."
   dotfiles checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .dotfiles.BAK/{}
   dotfiles checkout
   echo "Checked out dotfiles."
 fi
 
-echo "Installing Homebrew and packages."
+echo "Installing Homebrew and packages..."
 source bin/brew.sh
 
-# TODO: Set up fish shell
+eval $(/opt/homebrew/bin/brew shellenv)
 
-echo "Reloading shell."
-exec $SHELL
+# 5. Set up fish shell
+update_fish_shell() {
+  local shell_path
+  shell_path="$(command -v fish)"
+
+  echo "Changing shell to fish ..."
+  if ! grep "$shell_path" /etc/shells >/dev/null 2>&1; then
+    echo "Adding '${shell_path}' to /etc/shells"
+    echo "$shell_path" | sudo tee -a /etc/shells
+  fi
+  sudo chsh -s "$shell_path" "$USER"
+}
+
+update_fish_shell
+
+echo "Reloading shell..."
+exec fish
